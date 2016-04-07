@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Statement;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +14,7 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 
 	public static final Logger logger = Logger.getLogger(BaseObjectDao.class);
 
+	private DBConnection connectionPool = new DBConnection(3);
 	protected String tableName;
 	ArrayList<String> columnNames = new ArrayList<String>();
 
@@ -41,17 +41,19 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 		sql.setCharAt(sql.length() - 1, ')');
 		values.setCharAt(values.length() - 1, ')');
 		sql.append(values);
-		Connection connection = null;
+
+		ConnectionItem connection = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			connection = new DBConnection().initConnection();
-			logger.info("Установлено соединения");
-			st = connection.prepareStatement(sql.toString(), PreparedStatement.RETURN_GENERATED_KEYS);
+			connection = connectionPool.getConnectionItem();
+			logger.info("Connection открыт");
+			st = connection.getConn().prepareStatement(sql.toString(), PreparedStatement.RETURN_GENERATED_KEYS);
 			initAddStatement(st, obj);
+			logger.info("Statement открыт");
 			st.executeUpdate();
-			logger.info("исполнен запрос");
 			rs = st.getGeneratedKeys();
+			logger.info("resultSet открыт");
 			rs.next();
 			logger.info("получение сгенерированого id");
 			obj.setId(rs.getInt(1));
@@ -68,7 +70,7 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 					logger.info("Statement закрыт");
 					if (st != null)
 						st.close();
-					connection.close();
+					connectionPool.close(connection);
 					logger.info("connection закрыт");
 				} catch (SQLException e) {
 					logger.warn(e);
@@ -81,9 +83,16 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 		logger.info("Получение объекта из базы c id = " + id);
 		StringBuilder sql = generateSelectQery().append(" WHERE id = ").append(id);
 		B obj = null;
+		ConnectionItem connection = null;
 		ResultSet result = null;
+		Statement st = null;
 		try {
-			result = executeQuery(sql.toString());
+			connection = connectionPool.getConnectionItem();
+			logger.info("conn открыт");
+			st = connection.getConn().createStatement();
+			st.executeQuery(sql.toString());
+			logger.info("st открыт");
+			result = st.getResultSet();
 			result.next();
 			logger.info("Получение результат sql запроса");
 			obj = (B) baceObjectFactory(result);
@@ -94,6 +103,12 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 				if (result != null)
 					result.close();
 				logger.info("закрыт ResultSet");
+				if (st != null)
+					st.close();
+				logger.info("закрыт Statement");
+				if (connection != null)
+					connectionPool.close(connection);
+				logger.info("закрыт connect");
 			} catch (SQLException e) {
 				logger.warn(e);
 			}
@@ -105,13 +120,21 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 		logger.info("Получение всех обьектов из базы");
 		ArrayList<B> arr = new ArrayList<B>();
 		StringBuilder sql = generateSelectQery();
+		ConnectionItem connection = null;
 		ResultSet result = null;
+		Statement st = null;
 		try {
-			result = executeQuery(sql.toString());
+			connection = connectionPool.getConnectionItem();
+			logger.info("conn открыт");
+			st = connection.getConn().createStatement();
+			st.executeQuery(sql.toString());
+			logger.info("st открыт");
+			result = st.getResultSet();
+			logger.info("ResultSet открыт");
 			while (result.next()) {
 				arr.add((B) baceObjectFactory(result));
 			}
-			logger.info("получены обьекты");
+
 		} catch (SQLException e) {
 			logger.warn(e);
 		} finally {
@@ -119,6 +142,12 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 				if (result != null)
 					result.close();
 				logger.info("закрыт ResultSet");
+				if (st != null)
+					st.close();
+				logger.info("закрыт Statement");
+				if (connection != null)
+					connectionPool.close(connection);
+				logger.info("закрыт connect");
 			} catch (SQLException e) {
 				logger.warn(e);
 			}
@@ -145,12 +174,13 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 		}
 		sql.deleteCharAt(sql.length() - 1);
 		sql.append(whereId);
-		Connection connection = null;
+		ConnectionItem connection = null;
 		PreparedStatement st = null;
 		try {
-			connection = new DBConnection().initConnection();
-			logger.info("установлено соединения");
-			st = connection.prepareStatement(sql.toString());
+			connection = connectionPool.getConnectionItem();
+			logger.info("conn открыт");
+			st = connection.getConn().prepareStatement(sql.toString());
+			logger.info("res открыт");
 			initUpdateStatement(st, obj);
 			st.executeUpdate();
 			logger.info("исполнен Sql запрос");
@@ -162,7 +192,7 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 					if (st != null)
 						st.close();
 					logger.info("закрыт Statement");
-					connection.close();
+					connectionPool.close(connection);
 					logger.info("закрыто Соединения с бд");
 				} catch (SQLException e) {
 					logger.warn(e);
@@ -175,11 +205,14 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 
 		logger.info("Удаление оюьекта");
 		String sql = "DELETE FROM " + tableName + " WHERE id = ?";
-		Connection connection = null;
+		ConnectionItem connection = null;
 		PreparedStatement st = null;
 		try {
-			connection = new DBConnection().initConnection();
-			st = connection.prepareStatement(sql);
+
+			connection = connectionPool.getConnectionItem();
+			logger.info("connection открыт");
+			st = connection.getConn().prepareStatement(sql);
+			logger.info("Statement открыт");
 			st.setInt(1, obj.getId());
 			st.executeUpdate();
 
@@ -191,25 +224,13 @@ public abstract class BaseObjectDao<B extends BaseObject> {
 					if (st != null)
 						st.close();
 					logger.info("закрыт Statement");
-					connection.close();
-					logger.info("закрытио Соединения с бд");
+					connectionPool.close(connection);
+					logger.info("conn закрыт");
 				} catch (SQLException e) {
 					logger.warn(e);
 				}
 			}
 		}
-	}
-
-	protected ResultSet executeQuery(String sql) throws SQLException {
-		Connection connection = new DBConnection().initConnection();
-		logger.info("Соединение с бд установлено");
-
-		Statement st = connection.createStatement();
-		st.executeQuery(sql);
-		logger.info("исполнен sql запрос");
-		ResultSet rs = st.getResultSet();
-		logger.info("получениы данных");
-		return rs;
 	}
 
 	protected abstract B baceObjectFactory(ResultSet res) throws SQLException;

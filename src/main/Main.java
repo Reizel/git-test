@@ -20,6 +20,7 @@ public class Main {
 		CityDao citydao = CityDao.getInstance();
 		
 		logger.info("Вывод всех городов");
+		
 		ArrayList<City> arr = citydao.getList();
 		for (BaseObject obj : arr) {
 			System.out.println(obj);

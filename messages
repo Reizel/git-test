@@ -1,8 +1,101 @@
-2016-04-05 12:20:05 INFO  Main:17 - Старт программы!
-2016-04-05 12:20:05 INFO  Main:22 - Вывод всех городов
-2016-04-05 12:20:05 INFO  BaseObjectDao:105 - Получение всех обьектов из базы
-2016-04-05 12:20:06 INFO  BaseObjectDao:206 - Соединение с бд установлено
-2016-04-05 12:20:06 INFO  BaseObjectDao:210 - исполнен sql запрос
-2016-04-05 12:20:06 INFO  BaseObjectDao:212 - получениы данных
-2016-04-05 12:20:06 INFO  BaseObjectDao:114 - получены обьекты
-2016-04-05 12:20:06 INFO  BaseObjectDao:121 - закрыт ResultSet
+2016-04-07 14:45:56 INFO  Main:17 - Старт программы!
+2016-04-07 14:45:57 INFO  Main:22 - Вывод всех городов
+2016-04-07 14:45:57 INFO  BaseObjectDao:105 - Получение всех обьектов из базы
+2016-04-07 14:45:57 INFO  BaseObjectDao:205 - Соединение с бд установлено
+2016-04-07 14:45:57 INFO  BaseObjectDao:208 - исполнен sql запрос
+2016-04-07 14:45:57 INFO  BaseObjectDao:211 - получениы данных
+2016-04-07 14:45:57 INFO  BaseObjectDao:114 - получены обьекты
+2016-04-07 14:45:57 INFO  BaseObjectDao:121 - закрыт ResultSet
+2016-04-07 14:45:57 INFO  BaseObjectDao:105 - Получение всех обьектов из базы
+2016-04-07 14:45:57 INFO  BaseObjectDao:205 - Соединение с бд установлено
+2016-04-07 14:45:57 INFO  BaseObjectDao:208 - исполнен sql запрос
+2016-04-07 14:45:57 INFO  BaseObjectDao:211 - получениы данных
+2016-04-07 14:45:57 INFO  BaseObjectDao:114 - получены обьекты
+2016-04-07 14:45:57 INFO  BaseObjectDao:121 - закрыт ResultSet
+2016-04-07 14:45:57 INFO  BaseObjectDao:105 - Получение всех обьектов из базы
+2016-04-07 14:45:57 INFO  BaseObjectDao:205 - Соединение с бд установлено
+2016-04-07 14:45:57 INFO  BaseObjectDao:208 - исполнен sql запрос
+2016-04-07 14:45:57 INFO  BaseObjectDao:211 - получениы данных
+2016-04-07 14:45:57 INFO  BaseObjectDao:114 - получены обьекты
+2016-04-07 14:45:57 INFO  BaseObjectDao:121 - закрыт ResultSet
+2016-04-07 14:45:57 INFO  BaseObjectDao:105 - Получение всех обьектов из базы
+2016-04-07 14:45:57 INFO  BaseObjectDao:205 - Соединение с бд установлено
+2016-04-07 14:45:57 INFO  BaseObjectDao:208 - исполнен sql запрос
+2016-04-07 14:45:57 INFO  BaseObjectDao:211 - получениы данных
+2016-04-07 14:45:57 INFO  BaseObjectDao:114 - получены обьекты
+2016-04-07 14:45:57 INFO  BaseObjectDao:121 - закрыт ResultSet
+2016-04-07 15:04:58 INFO  Main:17 - Старт программы!
+2016-04-07 15:04:59 INFO  Main:22 - Вывод всех городов
+2016-04-07 15:04:59 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:04:59 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:217 - conn закрыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:218 - получениы данных
+2016-04-07 15:04:59 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:04:59 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:04:59 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:217 - conn закрыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:218 - получениы данных
+2016-04-07 15:04:59 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:04:59 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:04:59 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:217 - conn закрыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:218 - получениы данных
+2016-04-07 15:04:59 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:04:59 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:04:59 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:217 - conn закрыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:218 - получениы данных
+2016-04-07 15:04:59 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:04:59 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:05:17 INFO  Main:17 - Старт программы!
+2016-04-07 15:05:18 INFO  Main:22 - Вывод всех городов
+2016-04-07 15:05:18 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:05:18 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:05:18 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:05:18 INFO  BaseObjectDao:217 - conn закрыт
+2016-04-07 15:05:18 INFO  BaseObjectDao:218 - получениы данных
+2016-04-07 15:05:18 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:05:18 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:09:12 INFO  Main:17 - Старт программы!
+2016-04-07 15:09:13 INFO  Main:22 - Вывод всех городов
+2016-04-07 15:09:13 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:09:13 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:09:13 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:09:13 INFO  BaseObjectDao:216 - rs закрыт
+2016-04-07 15:09:13 INFO  BaseObjectDao:218 - conn закрыт
+2016-04-07 15:09:13 INFO  BaseObjectDao:219 - получениы данных
+2016-04-07 15:09:13 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:09:13 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 15:24:20 INFO  Main:17 - Старт программы!
+2016-04-07 15:24:21 INFO  Main:22 - Вывод всех городов
+2016-04-07 15:24:21 INFO  BaseObjectDao:107 - Получение всех обьектов из базы
+2016-04-07 15:24:21 INFO  BaseObjectDao:211 - conn открыт
+2016-04-07 15:24:21 INFO  BaseObjectDao:214 - Statement открыт
+2016-04-07 15:24:21 INFO  BaseObjectDao:216 - rs открыт
+2016-04-07 15:24:21 INFO  BaseObjectDao:218 - conn закрыт
+2016-04-07 15:24:21 INFO  BaseObjectDao:219 - получениы данных
+2016-04-07 15:24:21 INFO  BaseObjectDao:116 - ResultSet открыт
+2016-04-07 15:24:21 INFO  BaseObjectDao:123 - закрыт ResultSet
+2016-04-07 16:06:08 INFO  Main:17 - Старт программы!
+2016-04-07 16:06:09 INFO  Main:22 - Вывод всех городов
+2016-04-07 16:06:09 INFO  BaseObjectDao:114 - Получение всех обьектов из базы
+2016-04-07 16:06:09 INFO  BaseObjectDao:122 - conn открыт
+2016-04-07 16:06:09 INFO  BaseObjectDao:125 - st открыт
+2016-04-07 16:06:09 INFO  BaseObjectDao:127 - ResultSet открыт
+2016-04-07 16:06:09 INFO  BaseObjectDao:138 - закрыт ResultSet
+2016-04-07 16:09:48 INFO  Main:17 - Старт программы!
+2016-04-07 16:09:49 INFO  Main:22 - Вывод всех городов
+2016-04-07 16:09:49 INFO  BaseObjectDao:120 - Получение всех обьектов из базы
+2016-04-07 16:09:49 INFO  BaseObjectDao:128 - conn открыт
+2016-04-07 16:09:49 INFO  BaseObjectDao:131 - st открыт
+2016-04-07 16:09:49 INFO  BaseObjectDao:133 - ResultSet открыт
+2016-04-07 16:09:49 INFO  BaseObjectDao:144 - закрыт ResultSet
+2016-04-07 16:09:49 INFO  BaseObjectDao:147 - закрыт Statement
+2016-04-07 16:09:49 INFO  BaseObjectDao:150 - закрыт connect
